@@ -1,0 +1,15 @@
+{
+  "name": "tamux",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tue-ofuro/tamux.git",
+  "author": "Tue Ofuro Developers",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}

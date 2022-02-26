@@ -9,20 +9,16 @@
   <script src="./src/onlocalbrowser.js"></script>
   <script src="./src/dom/div.js"></script>
   <script src="./src/render.js"></script>
+  <script src="./src/hydrate.js"></script>
   <script src="./src/mount.js"></script>
+  <script src="./myapp/HelloTamux.js"></script>
 </head>
 
 <body>
   <div id="tamux-app"></div>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const TamuxRoot = new Div(
-        [
-          new Div([
-            new Text('Hello Tamux!'),
-          ]),
-          new Text("Hello"),
-        ]);
+      const TamuxRoot = new HelloTamux();
       const domRoot = document.getElementById("tamux-app");
       mount(TamuxRoot, domRoot);
     });

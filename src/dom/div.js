@@ -4,15 +4,28 @@ const TEXT_NODE = 3;
 class Div {
   nodeType = ELEMENT_NODE;
   childNodes = [];
+  styles = {};
 
-  constructor(childNodes) {
+  constructor(childNodes, styles = {}, onClick) {
     this.childNodes = childNodes;
+    this.styles = styles;
+    this.onClick = onClick;
   }
 
   // 子要素
-  render(children) {
-    return `<div>${children}</div>`;
+  renderHTML(children) {
+    return `<div style="${getInlineStyleFromObjectParam(
+      this.styles
+    )}">${children}</div>`;
   }
+}
+
+function getInlineStyleFromObjectParam(param) {
+  let text = "";
+  for (const [key, value] of Object.entries(param)) {
+    text += `${key}: ${value};`;
+  }
+  return text;
 }
 
 class Text {
@@ -23,7 +36,7 @@ class Text {
     this.value = value;
   }
 
-  render() {
+  renderHTML() {
     return this.value;
   }
 }
